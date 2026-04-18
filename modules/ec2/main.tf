@@ -5,8 +5,6 @@ resource "aws_iam_instance_profile" "ssm_profile" {
   name = "ssm-instance-profile"
   role = aws_iam_role.ssm_role.name
 }
-
-
 resource "aws_iam_role" "ssm_role" {
   name = "ssm-role"
 
