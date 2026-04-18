@@ -45,4 +45,3 @@ jobs:
       - name: Destroy
         run: terraform destroy -auto-approve
         working-directory: modules/ec2/
-
