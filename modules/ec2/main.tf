@@ -5,7 +5,7 @@ resource "aws_instance" "app" {
   associate_public_ip_address = false
 
   tags = {
-    Name = var.name
+    Name = "my-server"
   }
 }
 
