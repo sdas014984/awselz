@@ -38,6 +38,10 @@ jobs:
         run: terraform plan -out=tfplan
         working-directory: modules/ec2/
 
+      - name: Apply
+        run: terraform Apply -auto-approve tfplan
+        working-directory: modules/ec2/
+
       - name: Destroy
-        run: terraform destroy -auto-approve tfplan
+        run: terraform destroy -auto-approve
         working-directory: modules/ec2/
