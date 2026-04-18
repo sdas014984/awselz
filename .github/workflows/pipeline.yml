@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
+#      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
@@ -36,5 +36,5 @@ jobs:
         working-directory: modules/ec2/
 
       - name: Apply
-        run: terraform apply -auto-approve tfplan
+        run: terraform destroy -auto-approve tfplan
         working-directory: modules/ec2/
