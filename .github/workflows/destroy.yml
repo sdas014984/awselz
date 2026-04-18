@@ -39,7 +39,7 @@ jobs:
         working-directory: modules/ec2/
 
       - name: Apply
-        run: terraform Apply -auto-approve tfplan
+        run: terraform apply -auto-approve tfplan
         working-directory: modules/ec2/
 
       - name: Destroy
