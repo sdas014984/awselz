@@ -34,8 +34,6 @@ resource "aws_instance" "app" {
 
   iam_instance_profile = aws_iam_instance_profile.ssm_profile.name
 
-  terraform import aws_iam_role.ssm_role ssm-role
-  terraform import aws_iam_instance_profile.ssm_profile ssm-instance-profile
 
   tags = {
     Name = "my-server"
