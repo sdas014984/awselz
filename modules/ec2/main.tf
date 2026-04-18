@@ -29,7 +29,7 @@ resource "aws_iam_role_policy_attachment" "ssm" {
 resource "aws_instance" "app" {
   ami           = "ami-0f58b397bc5c1f2e8"
   instance_type = var.instance_type
-  associate_public_ip_address = false
+  associate_public_ip_address = true
 
   iam_instance_profile = aws_iam_instance_profile.ssm_profile.name
   tags = {
