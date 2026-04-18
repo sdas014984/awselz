@@ -1,14 +1,9 @@
 provider "aws" {
   region = var.aws_region
 }
-
-resource "aws_instance" "app" {
-  ami           = "ami-0f58b397bc5c1f2e8"
-  instance_type = var.instance_type
-  associate_public_ip_address = false
-  tags = {
-    Name = "my-server"
-  }
+resource "aws_iam_instance_profile" "ssm_profile" {
+  name = "ssm-instance-profile"
+  role = aws_iam_role.ssm_role.name
 }
 
 resource "aws_iam_role" "ssm_role" {
@@ -30,3 +25,13 @@ resource "aws_iam_role_policy_attachment" "ssm" {
   role       = aws_iam_role.ssm_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
+
+resource "aws_instance" "app" {
+  ami           = "ami-0f58b397bc5c1f2e8"
+  instance_type = var.instance_type
+  associate_public_ip_address = false
+  tags = {
+    Name = "my-server"
+  }
+}
+
