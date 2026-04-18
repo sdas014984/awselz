@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "app" {
   ami           = "ami-0f58b397bc5c1f2e8"
   instance_type = var.instance_type
-  key_name = "yahoo-keypair"
+  key_name = aws_key_pair.deployer.key_name
   associate_public_ip_address = false
 
   tags = {
@@ -13,4 +13,7 @@ resource "aws_instance" "app" {
   }
 }
 
-
+resource "aws_key_pair" "deployer" {
+  key_name   = "yahoo-keypair"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
