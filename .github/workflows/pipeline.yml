@@ -23,12 +23,12 @@ jobs:
         run: ls -R
       - name: Init
         run: terraform init
-        working-directory: /home/runner/work/awselz/module/ec2/
+        working-directory: modules/ec2/
 
       - name: Plan
         run: terraform plan -out=tfplan
-        working-directory: /home/runner/work/awselz/module/ec2/
+        working-directory: modules/ec2/
 
       - name: Apply
         run: terraform apply -auto-approve tfplan
-        working-directory: /home/runner/work/awselz/module/ec2/
+        working-directory: modules/ec2/
