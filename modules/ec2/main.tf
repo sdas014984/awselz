@@ -8,7 +8,7 @@ resource "aws_iam_instance_profile" "ssm_profile" {
 }
 
 resource "aws_iam_role" "ssm_role" {
-  name = "ssm-role"
+  name = "ssm-role-dev"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -31,7 +31,6 @@ resource "aws_instance" "app" {
   ami           = "ami-0f58b397bc5c1f2e8"
   instance_type = var.instance_type
   associate_public_ip_address = true
-
   iam_instance_profile = aws_iam_instance_profile.ssm_profile.name
 
 
