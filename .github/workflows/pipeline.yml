@@ -19,7 +19,8 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-
+      - name: Debug - list files
+        run: ls -R
       - name: Init
         run: terraform init
         working-directory: /home/runner/work/awselz/module/ec2/
