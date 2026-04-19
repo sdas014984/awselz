@@ -38,10 +38,3 @@ resource "aws_instance" "app" {
   }
 }
 
-module "networking" {
-  source = "./networking"
-}
-
-module "security" {
-  source = "./security"
-}
