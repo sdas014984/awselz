@@ -8,7 +8,7 @@ resource "aws_iam_instance_profile" "ssm_profile" {
 }
 
 resource "aws_iam_role" "ssm_role" {
-  name = "ssm-role-dev"
+  name_prefix = "ssm-role-"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
