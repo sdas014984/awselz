@@ -1,3 +1,17 @@
+module "ec2" {
+  source = "./modules/ec2"
+
+  instance_type = "t2.micro"
+  aws_region    = var.aws_region
+}
+
+module "networking" {
+  source = "./networking"
+}
+
+module "security" {
+  source = "./security"
+}
 module "dev_vpc" {
   source = "./modules/vpc"
 
