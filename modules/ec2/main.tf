@@ -1,8 +1,6 @@
 provider "aws" {
   region = var.aws_region
 }
-module "ec2" {
-  source = "../../modules/ec2"
 
 resource "aws_iam_instance_profile" "ssm_profile" {
   name = "ssm-instance-profile"
@@ -34,7 +32,6 @@ resource "aws_instance" "app" {
   instance_type = var.instance_type
   associate_public_ip_address = true
   iam_instance_profile = aws_iam_instance_profile.ssm_profile.name
-
 
   tags = {
     Name = "my-server"
