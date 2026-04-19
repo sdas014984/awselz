@@ -3,10 +3,10 @@ module "ec2" {
 }
 
 module "security" {
-  source = "./security"
+  source = "../../security"
 }
 module "dev_vpc" {
-  source = "./networking"
+  source = "../../networking"
 
   name = "dev-vpc"
   cidr = "10.1.0.0/16"
