@@ -1,6 +1,8 @@
 provider "aws" {
   region = var.aws_region
 }
+module "ec2" {
+  source = "../../modules/ec2"
 
 resource "aws_iam_instance_profile" "ssm_profile" {
   name = "ssm-instance-profile"
@@ -39,3 +41,10 @@ resource "aws_instance" "app" {
   }
 }
 
+module "networking" {
+  source = "../../networking"
+}
+
+module "security" {
+  source = "../../security"
+}
